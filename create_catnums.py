@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 categories = pd.read_csv('data/category_names.csv')
 
@@ -12,6 +11,7 @@ def toNumber(val, where):
     return where.index(val)
 
 
+# Renumber categories that they start from 0 or have numbers instead of names
 categories['category_level1'] = categories['category_level1'].apply(
     toNumber, args=(super_cats,))
 categories['category_level2'] = categories['category_level2'].apply(
