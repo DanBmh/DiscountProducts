@@ -31,9 +31,9 @@ def dataset_input_fn(filenames):
 # =================================================================================================
 
 
-next_example, next_label = dataset_input_fn('data/prediction.tfrecord')
+next_example, next_label = dataset_input_fn('data/prediction.tfrecords')
 
-file = open('data/submission.csv', mode='wb')
+file = open('submission.csv', mode='wb')
 file.write('_id,category_id'.encode('UTF-8'))
 file.write('\n'.encode('UTF-8'))
 

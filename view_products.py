@@ -7,10 +7,10 @@ import tensorflow as tf
 
 data = bson.decode_file_iter(open('data/train_example.bson', 'rb'))
 
-for c, d in enumerate(data):
+for index, row in enumerate(data):
 
-    for e, pic in enumerate(d['imgs']):
-        nparr = np.fromstring(pic['picture'], np.uint8)
+    for i, ims in enumerate(row['imgs']):
+        nparr = np.fromstring(ims['picture'], np.uint8)
         picture = cv.imdecode(nparr, cv.IMREAD_COLOR)
 
         # picture = cv.resize(picture,(90,90),cv.INTER_AREA)
@@ -19,5 +19,5 @@ for c, d in enumerate(data):
         cv.imshow("test", picture)
         cv.waitKey()
 
-    if(c > 4):
+    if(index > 4):
         exit()
